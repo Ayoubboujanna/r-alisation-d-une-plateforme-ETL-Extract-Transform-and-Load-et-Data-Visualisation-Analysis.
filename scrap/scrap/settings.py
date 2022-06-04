@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-5et2(95#@1)5nwe8zy-4rk1mv+k!+h0@2m5z)uri(tm&mv*!np
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200/']
 
 
 # Application definition
@@ -42,8 +43,11 @@ INSTALLED_APPS = [
     'djongo',
     'django_elasticsearch_dsl',
     'django_elasticsearch_dsl_drf',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 GRAPHENE = {
     "SCHEMA": "films.schema.schema"
@@ -58,6 +62,7 @@ ELASTICSEARCH_DSL={
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,3 +142,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:4200"
+]
