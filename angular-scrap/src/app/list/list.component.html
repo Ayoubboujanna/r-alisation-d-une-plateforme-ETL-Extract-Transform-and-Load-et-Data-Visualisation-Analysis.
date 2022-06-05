@@ -1,0 +1,14 @@
+<div *ngFor="let film of films | async">
+    <div class="card" style="width: 100%; margin-top: 10px">
+      <div class="card-body">
+        <h5 class="card-title">{{film.movieName}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"> {{film.rang}}</h6>
+        <p class="card-text">{{film.rating}}</p>
+        <h5 class="card-title">{{film.director}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"> {{film.gross}}</h6>
+        <p class="card-text">{{film.year}}</p>
+        
+      </div>
+    </div>
+  </div>
+
